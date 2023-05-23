@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generador de código QR</title>
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+  <h1>Generador de código QR</h1>
+  
+  <label for="datos">Ingrese los datos que desea codificar en el código QR:</label>
+  <input type="text" id="datos">
+  <button onclick="generarCodigoQR()">Generar Código QR</button>
+
+    <div id="codigoQR"></div>
+
+  <script>
+    function generarCodigoQR() {
+      var datos = document.getElementById("datos").value;
+      var codigoQRDiv = document.getElementById("codigoQR");
+
+      // Crear instancia del generador de código QR
+      var qr = new QRCode(codigoQRDiv, {
+        text: datos,
+        width: 128,
+        height: 128
+      });
+
+      console.log("El código QR se ha generado exitosamente.");
+    }
+  </script>
+</body>
+</html>
